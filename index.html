@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student ID Card Generator | SRM AP</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <section class="email-gate" id="emailGate" aria-labelledby="gateTitle">
+    <div class="email-gate-card">
+      <div class="gate-brand-mark" aria-hidden="true">S</div>
+      <span class="gate-eyebrow">SRM UNIVERSITY AP</span>
+      <h1 id="gateTitle">Student access</h1>
+      <p>Enter your university email address to continue to the Student ID Card Generator.</p>
+      <form id="emailGateForm" novalidate>
+        <label for="universityEmail">University email</label>
+        <input id="universityEmail" name="email" type="email" autocomplete="email"
+          placeholder="name@srmap.edu.in" required aria-describedby="emailGateMessage">
+        <p class="gate-message" id="emailGateMessage" role="status" aria-live="polite">
+          Use an address ending in @srmap.edu.in.
+        </p>
+        <button class="gate-enter-button" type="submit">Enter</button>
+      </form>
+    </div>
+  </section>
+
+  <div id="appContent" hidden>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">S</div>
+      <div>
+        <h2>SRM AP</h2>
+        <p>UNIVERSITY INSPIRED PROJECT</p>
+      </div>
+    </div>
+    <span class="top-label">STUDENT PORTAL · DEMO</span>
+  </header>
+
+  <main class="container">
+
+    <section class="intro">
+      <span class="eyebrow">ADVANCED JAVA PROJECT · FRONTEND</span>
+      <h1>Student ID Card Generator</h1>
+      <p>Enter student information to create a digital ID card preview.</p>
+    </section>
+
+    <section class="workspace">
+
+      <!-- STUDENT FORM -->
+      <section class="form-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="step">01 / DETAILS</span>
+            <h2>Student information</h2>
+          </div>
+          <span class="status-dot">● Ready</span>
+        </div>
+
+        <form id="studentForm">
+
+          <div class="field">
+            <label for="studentName">Full name</label>
+            <input id="studentName" type="text"
+              placeholder="Enter student name"
+              maxlength="60" required>
+          </div>
+
+          <div class="field">
+            <label for="studentId">Registration number</label>
+            <input id="studentId" type="text"
+              placeholder="Enter registration number"
+              maxlength="30" required>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="degree">Degree</label>
+              <select id="degree" required>
+                <option value="" selected disabled>Select degree</option>
+                <option value="B.Tech.">B.Tech.</option>
+                <option value="M.Tech.">M.Tech.</option>
+                <option value="B.Sc.">B.Sc.</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="department">Department</label>
+              <select id="department" required>
+                <option value="" selected disabled>Select department</option>
+                <option value="CSE BIGDATA">CSE BIGDATA</option>
+                <option value="CSE">CSE</option>
+                <option value="CSE AIML">CSE AIML</option>
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                <option value="Mechanical">Mechanical</option>
+                <option value="Civil">Civil</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="year">Study year</label>
+              <select id="year" required>
+                <option value="" selected disabled>Select year</option>
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="academicYears">Academic period</label>
+              <input id="academicYears" type="text"
+                placeholder="e.g. 2023 - 2027"
+                maxlength="20" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="photo">Student photograph</label>
+            <label class="upload-box" for="photo">
+              <span class="upload-icon">↑</span>
+              <span id="photoLabel">Choose your photograph (optional)</span>
+            </label>
+            <input id="photo" type="file" accept="image/*" hidden>
+          </div>
+
+          <div class="form-actions">
+            <button class="primary-button" type="submit">
+              Generate ID Card ↗
+            </button>
+            <button class="secondary-button" type="reset">Reset</button>
+          </div>
+        </form>
+
+        <p class="privacy-note">
+          Academic demo. Student information is not uploaded to a server.
+        </p>
+      </section>
+
+      <!-- CARD PREVIEW -->
+      <section class="preview-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="step">02 / PREVIEW</span>
+            <h2>Your digital card</h2>
+          </div>
+          <span class="preview-tag">CARD PREVIEW</span>
+        </div>
+
+        <div class="card-stage">
+          <article class="id-card" id="idCard">
+
+            <div class="card-top">
+              <div class="college-logo">S</div>
+              <div class="college-heading">
+                <h2>SRM</h2>
+                <h3>UNIVERSITY AP</h3>
+                <p>Andhra Pradesh</p>
+              </div>
+            </div>
+
+            <div class="college-address">
+              Neerukonda - Kuragallu Village, Mangalagiri Mandal<br>
+              Guntur District, Andhra Pradesh - 522240<br>
+              School of Engineering and Sciences
+            </div>
+
+            <div class="card-accent"></div>
+
+            <div class="card-content">
+              <div class="portrait-frame">
+                <img id="previewPhoto" alt="Student photograph">
+                <span id="photoPlaceholder">PHOTO</span>
+              </div>
+
+              <div class="student-info">
+                <span class="mini-label">STUDENT DETAILS</span>
+                <h3 id="previewName"></h3>
+
+                <div class="info-line">
+                  <strong id="previewDegree"></strong>
+                </div>
+
+                <div class="info-line">
+                  <strong id="previewDept"></strong>
+                </div>
+
+                <div class="info-line">
+                  <span>Registration Number</span>
+                  <strong id="previewId"></strong>
+                </div>
+
+                <div class="info-line">
+                  <span>Study Year</span>
+                  <strong id="previewYear"></strong>
+                </div>
+
+                <div class="info-line">
+                  <span>Academic Period</span>
+                  <strong id="previewDuration"></strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <span>ACADEMIC PROJECT</span>
+              <span>DEMO · NOT VALID FOR ACCESS</span>
+            </div>
+
+            <div class="demo-watermark">DEMO</div>
+          </article>
+        </div>
+
+        <div class="preview-actions">
+          <button class="secondary-button" id="printButton" type="button">
+            Print preview
+          </button>
+          <button class="secondary-button" id="downloadButton" type="button">
+            Save as image
+          </button>
+        </div>
+
+        <p class="hint">
+          Fill in the form and click Generate ID Card to display your details.
+        </p>
+      </section>
+
+    </section>
+
+    <footer>Student ID Card Generator · Advanced Java academic prototype</footer>
+  </main>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
