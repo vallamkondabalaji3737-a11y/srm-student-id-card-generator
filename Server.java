@@ -30,7 +30,7 @@ public class Server {
 
     public static void main(String[] args) throws Exception {
         Files.createDirectories(DATA_DIR);
-        HttpServer server = HttpServer.create(new InetSocketAddress("127.0.0.1", PORT), 0);
+        HttpServer server = HttpServer.create(new InetSocketAddress("0.0.0.0", PORT), 0);
         server.createContext("/api/health", new ApiHandler());
         server.createContext("/api/students", new ApiHandler());
         server.createContext("/", new StaticHandler());
